@@ -27,10 +27,14 @@ const COLORS = ['#FF7E67', '#4ECDC4', '#FFD93D', '#95E1D3']
 
 export function MainChart() {
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
+    <div className="bg-gray-50 rounded-xl shadow-sm p-6 mb-6">
       <div className="h-[400px]">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={lineData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
+          <LineChart 
+            data={lineData} 
+            margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+            style={{ backgroundColor: '#f9fafb' }}
+          >
             <XAxis dataKey="mes" />
             <YAxis />
             <Tooltip />
@@ -55,8 +59,8 @@ export function MainChart() {
       </div>
       <div className="absolute top-40 right-20 bg-white rounded-lg shadow-lg p-4 border border-gray-100">
         <div className="mb-2">
-          <h3 className="text-sm text-gray-500">Octubre 2024</h3>
-          <p className="text-xl font-semibold">2.6 tnCO2eq</p>
+          <h3 className="text-sm text-gray-900 font-semibold">Octubre 2024</h3>
+          <p className="text-xl  text-gray-900 font-semibold">2.6 tnCO2eq</p>
         </div>
         <div className="w-[150px] h-[150px]">
           <ResponsiveContainer width="100%" height="100%">
@@ -80,12 +84,12 @@ export function MainChart() {
         </div>
         <div className="mt-2 grid grid-cols-2 gap-2">
           {pieData.map((item, index) => (
-            <div key={index} className="flex items-center text-xs">
+            <div key={index} className="flex items-center text-sm font-semibold text-gray-900">
               <div 
-                className="w-2 h-2 rounded-full mr-1"
+                className="w-3 h-3 rounded-full mr-2"
                 style={{ backgroundColor: COLORS[index] }}
               />
-              {item.name}
+              <span>{item.name}</span>
             </div>
           ))}
         </div>
